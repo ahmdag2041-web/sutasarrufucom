@@ -8,7 +8,14 @@ app = Flask(__name__)
 app.secret_key = "secret-key"
 
 # 🔥 MongoDB bağlantısı
-client = MongoClient("mongodb+srv://ahmdag2041_db_user:HTQoEzTE2wQ7DgCG@cluster0.fqqqhoz.mongodb.net/")
+# client = MongoClient("mongodb+srv://ahmdag2041_db_user:HTQoEzTE2wQ7DgCG@cluster0.fqqqhoz.mongodb.net/")
+
+
+
+
+client = MongoClient(
+    "mongodb+srv://ahmdag2041_db_user:HTQoEzTE2wQ7DgCG@cluster0.fqqqhoz.mongodb.net/dbname?retryWrites=true&w=majority&tlsAllowInvalidCertificates=true"
+)
 
 
 db = client["sutasarruf"]                # → Veritabanı (ilk kayıt gelince oluşur)
