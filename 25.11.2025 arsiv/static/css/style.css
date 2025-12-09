@@ -1,0 +1,75 @@
+
+body {
+    font-family: Arial, sans-serif;
+    /* background-color: rgb(197, 203, 206) !important; */
+    /* overflow: hidden; */
+    height: 100%;
+  }
+
+
+  .video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+
+section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.resim{
+
+    border-radius: 10%!important;
+}
+.anasayfa_govde{
+    /* background: rgba(68, 65, 65, 0.282) !important; */
+
+    /* background-image: url(img/ana_govde_arka_plan.jpg) !important; */
+    /* height:100vh !important; */
+    width: 100% !important;
+    /* background-size: cover;
+    background-repeat: no-repeat; */
+}
+.hnavbar{
+    height:150px;
+    width:70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* .hnavbar.navbar {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+} */
+
+
+nav.navbar.hnavbar {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.hnavbar img {
+  height: 100%;
+}
+
+
+
+
+
+/* Kart Hover Animasyonu */
+.animate-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+.animate-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}

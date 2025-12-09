@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Su Tasarruf Rehberi</title>
+
+     <!-- ! Favicon -->
+    <link rel="icon" href="img/favicon.png" type="image/x-icon">
+
+    <!-- ! Fontawesome CSS CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+    <!-- ! Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- ! Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+
+    <!-- ! External CSS -->
+
+    <link rel="stylesheet" href="static/css/style.css">
+
+<!--    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
+
+</head>
+<body>
+
+  <!-- anasayfa govde -->
+<div class="anasayfa_govde d-flex justify-content-center position-relative">
+
+  <!-- <video muted autoplay src="/static/img/arkaplanvideo.mp4"></video> -->
+  
+  <video autoplay muted loop class="video-bg">
+  <source src="/static/img/arkaplanvideo.mp4" type="video/mp4">
+</video>
+  
+<!-- Navbar -->
+
+<nav class="navbar my-3 navbar-expand-lg bg-info  rounded-5 align-content-center hnavbar mb-0 py-0">
+  <div class="container-fluid ">
+ 
+    <!-- calışan -->
+  <!-- <img src="/static/img/sutasarrufu_logo2.png" alt="Logo" class="mt-0 resim img-fluid d-block" style="margin-left:-0.75rem; max-width:100px;"> -->
+
+
+      <img src="/static/img/sutasarrufu_logo2.png"
+         alt="Logo"
+         class="d-block rounded-5"
+         style="margin-left:-0.75rem; height:150px; width:auto;">
+   
+
+
+    <a class="navbar-brand " href="#"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 p-3">
+        <li class="nav-item ">
+          <a class="nav-link  font-weight-bold fs-4" aria-current="page" href="#">Anasayfa</a>
+        </li>
+
+        <li class="nav-item ">
+          <a class="nav-link font-weight-bold fs-4" href="#">Hakkımızda</a>
+        </li>
+
+
+        <li class="nav-item ">
+          <a class="nav-link font-weight-bold fs-4" href="#">İletişim</a>
+        </li>
+
+
+      </ul>
+      <form class="d-flex" role="arama">
+        <input class="form-control-sm me-2" type="arama" placeholder="Site İçi Arama" aria-label="Arama"/>
+        <button class="btn btn-outline-success" type="submit">
+          <!-- butonun içine bootstrap search ikonu ilave ettim -->
+          <i class="bi bi-search"></i>
+          <!-- Arama -->
+        
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+
+</div>
+
+
+<!-- Kartlar Bölümü -->
+<section id="cards " class="py-5">
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- Uzman Görüşleri Kartı -->
+      <div class="col-md-3 ">
+        <div class="card h-100 shadow rounded-5 animate-card bg-info" data-bs-toggle="modal" data-bs-target="#uzmanModal">
+          <img src="{{ url_for('static', filename='img/uzman.png') }}" class="card-img-top" alt="Uzman">
+          <div class="card-body text-center">
+            <h5 class="card-title fw-bolder">Uzman Görüşleri</h5>
+            <p class="card-text">Su tasarrufu uzmanlarının önerileri.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bizden Gelenler Kartı -->
+      <div class="col-md-3">
+        <div class="card h-100 shadow rounded-5  animate-card bg-info" data-bs-toggle="modal" data-bs-target="#fikirModal">
+          <img src="{{ url_for('static', filename='img/video.png') }}" class="card-img-top" alt="Fikirler">
+          <div class="card-body text-center">
+            <h5 class="card-title fw-bolder">Fikirler & Videolar</h5>
+            <p class="card-text">Bizden gelen öneriler ve videolar.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ürünler Kartı -->
+      <div class="col-md-3">
+        <div class="card h-100 shadow rounded-5  animate-card bg-info" data-bs-toggle="modal" data-bs-target="#urunModal">
+          <img src="{{ url_for('static', filename='img/urun.png') }}" class="card-img-top" alt="Ürünler">
+          <div class="card-body text-center">
+            <h5 class="card-title fw-bolder">Su Tasarruf Ürünleri</h5>
+            <p class="card-text">Ev ve bahçe için tasarruf ürünleri.</p>
+          </div>
+        </div>
+      </div>
+
+<!-- 4. Kart: En Çok Merak Edilenler & Sorular -->
+<div class="col-md-3">
+  <div class="card h-100 shadow rounded-5 animate-card bg-info" data-bs-toggle="modal" data-bs-target="#merakModal">
+    <img src="{{ url_for('static', filename='img/merak.png') }}" class="card-img-top" alt="Merak Edilenler">
+    <div class="card-body text-center">
+      <h5 class="card-title fw-bolder">En Çok Merak Edilenler & Sorular</h5>
+      <p class="card-text">Kullanıcıların sık sorduğu sorular ve kısa videolar.</p>
+    </div>
+  </div>
+</div>
+
+
+    </div>
+  </div>
+</section>
+
+<!-- İletişim Formu -->
+<section id="contact" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4">İletişim</h2>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }} text-center">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <form method="POST" class="mx-auto" style="max-width: 500px;">
+      <div class="mb-3">
+        <label for="name" class="form-label">Adınız</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">E-posta</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Mesajınız</label>
+        <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Gönder</button>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white py-3 text-center">
+  &copy; 2025 Su Tasarruf Rehberi
+</footer>
+
+<!-- Modallar -->
+<!-- Modal: uzman görüşleri -->
+<div class="modal fade" id="uzmanModal" tabindex="-1" aria-labelledby="merakModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="merakModalLabel">Uzman görüşleri</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        
+        <div class="row g-4">
+
+
+
+
+                    <!-- inci karakaş-->
+          <div class="col-md-12">
+            <h6 class="fw-bold">1.Basit önlemlerle büyük tasarruf</h6>
+                    <p>Günlük yaşamda alınabilecek küçük önlemlerin ciddi tasarruf sağlayabileceğini belirten Dr. Öğr. Üyesi İnci Karakaş, şöyle devam etti:
+                    “Tuvalet rezervuarlarının su depolama kapasitesi 16 litredir. 4 kişilik bir aile 16 litrelik tuvalet rezervuarı ile ayda tuvalette 7 ton su tüketmektedir. 7 litre gibi daha az su hacmi olan tuvalet rezervuarlarının kullanımı ile su tüketimini 2.5-3 tona düşürmek mümkün olabilmektedir. Tuvalet rezervuarının 16 litre olması halinde su tüketimini azaltabilmek için 1.5 litrelik plastik şişelerin doldurularak rezervuara koyulmasıyla su tüketimi %20 oranında azaltılabilmektedir. Klasik duş başlıklarından dakikada ortalama 15-20 litre su akarken, düşük akımlı tasarruflu duş başlıklarından dakikada 9-10 litre su akmaktadır. Böylece 5 dakikalık duş esnasında daha az su tüketimi sağlanabilmektedir. Düşük akımlı tasarruflu duş başlıklarında %30-40 su tasarrufu mümkün olabilmektedir. Diş fırçalama ve yüz yıkama esnasında musluğun kapatılması halinde ortalama 15-35 litre su tasarrufu sağlanmaktadır.” 
+
+                    Evlerde en çok suyun harcandığı alanlar
+                    Evlerde suyun büyük kısmının banyoda, tuvalette ve temizlikte boşa harcandığını vurgulayan Dr. Öğr. Üyesi İnci Karakaş, “Evlerde suyun %35 banyoda, %30 tuvalette, %20 çamaşır ve bulaşık yıkamada, %10 mutfakta ve %5’i ise temizlik amacı ile kullanılmaktadır. Diş fırçalama ve yüz yıkama esnasında musluğun kapalı tutulması ile günde 15-35 litre su tasarrufu sağlanabilmektedir. Duş esnasında suyun ısınmasını beklerken suyu kaba doldurup temizlikte kullanımıyla tasarruf sağlanmaktadır. Çamaşır ve bulaşık makineleri tek yıkamada ortalama 40 litre su tüketmektedir. Makinelerin tam doldurulması ve kısa programların tercih edilmesiyle ciddi miktarda su tasarrufu mümkün olmaktadır. Mutfakta akan su altında sebze ve meyvelerin yıkanmaması bunun yerine bir kap içerisinde yıkanarak bu suyun da çiçek ve bahçe sulamada kullanılabilir. Arızalı muslukların tamirinin yapılarak su kaçağı olan alanların tespit edilip tamir edilmesi de büyük önem taşımaktadır.” şeklinde konuştu. 
+
+                    Bahçede damla sulama ile %50 tasarruf
+                    Bahçe ve balkon sulamalarında suyun daha verimli kullanılabileceğini hatırlatan Dr. Öğr. Üyesi İnci Karakaş, şu önerilerde bulundu:
+                    “Suyun doğrudan bitki köklerine ulaştığı damla sulama sistemleri tercih edilerek su kaybı önlenmektedir. Damla sulama sistemleriyle %50’ye kadar su tasarrufu sağlanmakta, toprak ihtiyacı olan kadar su almakta ve yalnızca hedeflenen bitkiler sulandığı için yabani otların da büyümesi önlenmektedir. Ayrıca, buharlaşmayla su kayıplarının önüne geçebilmek için sulamanın akşam yapılması önemlidir. Böylece toprak suyu daha iyi alarak, gereksiz su kullanımını önlenmiş olacaktır. Susuzluğa dayanıklı bitkiler seçilerek büyük oranda su tasarrufu sağlanmaktadır.” 
+
+                    Küçük adımlar büyük fark oluşturuyor
+                    Su tasarrufunun bireysel önlemlerle toplumsal düzeyde büyük bir etki oluşturabileceğinin altını çizen Dr. Öğr. Üyesi İnci Karakaş, sözlerini şöyle tamamladı:
+
+                    “Suyun verimli şekilde kullanılması için kitlesel ölçekte farkındalığın oluşturulası önemlidir. 22 Mart Dünya Su Günü ve 18 Eylül Su Tasarrufu Günü gibi özel günlerle su kaynaklarının korunması ve su tasarrufunun yapılması ile ilgili bilinç oluşturulmakta ve suyun önemi vurgulanabilmektedir. Böylece toplumda bilinç oluşturulmakta ve suyun daha verimli olarak kullanılması sağlanmaktadır. Akıtan muslukları tamir ederek, musluk uçlarına tasarruf aparatları takarak, tasarruflu duş başlıkları kullanarak, bulaşık ve çamaşır makinelerinde su ve enerji tasarruflu olanlar tercih edilerek tonlarca miktarda su tasarrufu sağlanmaktadır. Ayrıca, ön yıkama yapmayarak ve makineleri dolmadan çalıştırmayarak, duş ve diş fırçalama esnasında suyu boşa akıtmayarak, kademeli sifonlar kullanarak suyu çok daha verimli kullanabiliriz.”
+
+                    Üsküdar Haber Ajansı (ÜHA)</p>
+                <!-- video kısmı iptal olsu aşağıda -->
+            <!-- <div class="ratio ratio-16x9">
+              <iframe src="https://www.youtube.com/embed/WAoJkAamFE0" allowfullscreen></iframe>
+            </div> -->
+          </div>
+
+
+
+
+          <!-- 1. uzman-->
+          <div class="col-md-4">
+            <h6 class="fw-bold">1. Ev İçi Su Kullanımı – Uzman Görüşü</h6>
+                <p>“Evlerde en büyük su tüketimi banyo ve mutfakta gerçekleşiyor. Kısa duş alışkanlığı, tasarruflu duş başlığı kullanımı ve damlatan muslukların onarılması, günlük tüketimde ciddi azalma sağlar. Ortalama bir hanede bu basit adımlar su kullanımını %25’e kadar düşürebilir.”</p>
+                <!-- video kısmı iptal olsu aşağıda -->
+            <!-- <div class="ratio ratio-16x9">
+              <iframe src="https://www.youtube.com/embed/WAoJkAamFE0" allowfullscreen></iframe>
+            </div> -->
+          </div>
+
+          <!-- 2. uzman -->
+          <div class="col-md-4">
+            <h6 class="fw-bold">2. Rezervuar ve Sifon Sistemleri – Uzman Görüşü</h6>
+            <p>“Eski tip rezervuarlar gereksiz yere fazla su harcar. Çift kademeli sifon, deplasman aparatı ve kaçak kontrolü gibi küçük iyileştirmeler, yılda binlerce litre su tasarrufu sağlar. Sadece 1 mm’lik bir sifon kaçağı bile ayda yüzlerce litre su kaybına neden olabilir.”</p>
+            <!-- video kısmı iptal olsu aşağıda -->
+            <!-- <div class="ratio ratio-16x9">
+              <iframe src="https://www.youtube.com/embed/-bNy73KFQ8k" allowfullscreen></iframe>
+            </div> -->
+          </div>
+
+          <!-- 3. uzman -->
+          <div class="col-md-4">
+            <h6 class="fw-bold">3. Bahçe ve Dış Mekân Kullanımı – Uzman Görüşü</h6>
+            <p>“Bahçe sulamasında en büyük verim kaybı zamanlama hatalarından kaynaklanır. Sabah erken veya güneş battıktan sonra yapılan sulama, buharlaşmayı azaltarak %30’a varan tasarruf sağlar. Damla sulama sistemi ise bitki köküne doğrudan su verdiği için en verimli yöntemlerden biridir.”</p>
+              <!-- video kısmı iptal olsu aşağıda -->
+            <!-- <div class="ratio ratio-16x9">
+              <iframe src="https://www.youtube.com/embed/dCeqLaaXDXU" allowfullscreen></iframe>
+            </div> -->
+          </div>
+
+
+
+                   <!-- 4. uzman -->
+          <div class="col-md-4">
+            <h6 class="fw-bold">4. Bulaşık ve Çamaşırmakinesi Kullanımı – Uzman Görüşü</h6>
+                <p>“Bulaşık ve çamaşır makinelerinin tam dolu çalıştırılması, evsel su tüketiminde en etkili tasarruf yöntemlerinden biridir. Modern makineler elde yıkamaya göre 5–10 kat daha az su kullanır. Ayrıca sıcak su hattının kısa tutulması ve damlatan muslukların onarılması mutfak tüketimini önemli ölçüde azaltır.”</p>
+             <!-- video kısmı iptal olsu aşağıda -->
+            <!-- <div class="ratio ratio-16x9">
+              # buraya video iframe gelecek
+            </div> -->
+          </div>
+
+
+                             <!-- 5. uzman -->
+          <div class="col-md-4">
+            <h6 class="fw-bold">5. Su Kaçakları ve Bakım – Uzman Görüşü</h6>
+                <p>“Görünmez su kaçakları, evlerde fark edilmeyen en büyük su kaybı nedenlerindendir. Rezervuar contaları, musluk kartuşları ve bağlantı noktaları düzenli kontrol edildiğinde gereksiz tüketimin büyük kısmı önlenir. Yavaş damlayan bir musluk bile ayda yüzlerce litre suyun boşa gitmesine neden olabilir.”</p>
+             <!-- video kısmı iptal olsu aşağıda -->
+            <!-- <div class="ratio ratio-16x9">
+              # buraya video iframe gelecek
+            </div> -->
+          </div>
+
+                                       <!-- 6. uzman -->
+          <div class="col-md-4">
+            <h6 class="fw-bold">6. Teknoloji ve Akıllı Sistemler – Uzman Görüşü</h6>
+                <p>“Akıllı su sayaçları, debi sensörleri ve otomatik kapatma sistemleri evlerdeki tüketimi daha iyi takip etmeyi sağlar. Bu cihazlar kaçakları erken tespit ederek hem faturayı düşürür hem de gereksiz su kaybını önler. Dijital izleme, su yönetiminde geleceğin standart çözümlerinden biri hâline geliyor.”</p>
+             <!-- video kısmı iptal olsu aşağıda -->
+            <!-- <div class="ratio ratio-16x9">
+              # buraya video iframe gelecek
+            </div> -->
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Fikirler & Videolar Modal (YouTube Embed) -->
+<div class="modal fade" id="fikirModal" tabindex="-1">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Fikirler & Videolar</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row g-4">
+
+          <!-- 1. Video Kartı -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow">
+              <div class="ratio ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/sK3-KFxDh0I" title="Musluğa Perlatör Takma" allowfullscreen></iframe>
+              </div>
+              <div class="card-body">
+                <h6 class="card-title">Musluğa Perlatör Takma</h6>
+                <p class="card-text">Musluğunuzdaki perlatör ile su akışını azaltmanın 3 kolay adımı.</p>
+                <div class="tags mb-2">
+                  <span class="badge bg-success">#Musluk</span>
+                  <span class="badge bg-info">#Tasarruf</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Video Kartı -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow">
+              <div class="ratio ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/-bNy73KFQ8k" title="Sensörlü Duş Başlığı" allowfullscreen></iframe>
+              </div>
+              <div class="card-body">
+                <h6 class="card-title">Sensörlü Duş Başlığı</h6>
+                <p class="card-text">Sensörlü duş başlığı ile günlük %40 su tasarrufu sağlama.</p>
+                <div class="tags mb-2">
+                  <span class="badge bg-warning text-dark">#Duş</span>
+                  <span class="badge bg-info">#Tasarruf</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Video Kartı -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow">
+              <div class="ratio ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/g5ML9F9ebvo" title="Bulaşık Makinesinde Tasarruf" allowfullscreen></iframe>
+              </div>
+              <div class="card-body">
+                <h6 class="card-title">Bulaşık Makinesinde Tasarruf</h6>
+                <p class="card-text">Makinenizi tam dolu çalıştırarak su ve enerji tasarrufu sağlayın.</p>
+                <div class="tags mb-2">
+                  <span class="badge bg-primary">#Bulaşık</span>
+                  <span class="badge bg-info">#Ev</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Daha fazla video kartı ekleyebilirsin -->
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- Ürünler Modal -->
+<div class="modal fade" id="urunModal" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      
+      <!-- Modal Başlığı -->
+      <div class="modal-header">
+        <h5 class="modal-title">Su Tasarruf Ürünleri</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal İçeriği -->
+      <div class="modal-body">
+
+        <p>
+          Bu bölümde evde gerçekten su tasarrufu sağlayabilen, markasız, uygun fiyatlı ve 
+          herkesin kolaylıkla uygulayabileceği ürün önerileri yer almaktadır. 
+          Ürünler günlük kullanımda yüksek verim sağlar.
+        </p>
+
+        <hr>
+
+        <!-- Ürün Kartları Grid -->
+        <div class="row g-4">
+
+          <!-- 1. Ürün -->
+          <div class="col-md-4">
+            <div class="card h-100 shadow animate-card text-center">
+              <img src="static/img/sensorlu.dus.png" class="card-img-top" alt="Sensörlü Duş Başlığı">
+              <div class="card-body">
+                <h6 class="fw-bold">Sensörlü Duş Başlığı</h6>
+                <p>%40–50 su tasarrufu sağlar. Durulama anında tam akış verir.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Ürün -->
+          <div class="col-md-4">
+            <div class="card h-100 shadow animate-card text-center">
+              <img src="static/img/doner_aerator.png" class="card-img-top" alt="Ayarlanabilir Döner Aeratör">
+              <div class="card-body">
+                <h6 class="fw-bold">Ayarlanabilir Döner Aeratör</h6>
+                <p>Akış yönünü ayarlar, suyu havayla karıştırarak tasarruf sağlar.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Ürün -->
+          <div class="col-md-4">
+            <div class="card h-100 shadow animate-card text-center">
+              <img src="static/img/filtreli_muslukucu.png" class="card-img-top" alt="Filtreli Musluk Ucu">
+              <div class="card-body">
+                <h6 class="fw-bold">Filtreli Musluk Ucu</h6>
+                <p>Partikülleri filtreler ve akışı düzenler. Hijyen + tasarruf sağlar.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Ürün (alt satıra geçer) -->
+          <div class="col-md-4">
+            <div class="card h-100 shadow animate-card text-center">
+              <img src="static/img/perlator.png" class="card-img-top" alt="Perlatör Aparatı">
+              <div class="card-body">
+                <h6 class="fw-bold">Perlatör Aparatı</h6>
+                <p>Su ile havayı karıştırarak %30–40 oranında su tasarrufu sağlar.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal: En Çok Merak Edilenler & Sorular -->
+<div class="modal fade" id="merakModal" tabindex="-1" aria-labelledby="merakModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="merakModalLabel">En Çok Merak Edilenler & Sorular</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        
+        <div class="row g-4">
+
+          <!-- 1. Video -->
+          <div class="col-md-4">
+            <h6 class="fw-bold">Perlatör gerçekten tasarruf sağlıyor mu?</h6>
+            <p>%40–60 su tasarrufu sağlayabilir.</p>
+            <div class="ratio ratio-16x9">
+              <iframe src="https://www.youtube.com/embed/WAoJkAamFE0" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <!-- 2. Video -->
+          <div class="col-md-4">
+            <h6 class="fw-bold">Tasarruf duş başlığı ne kadar fark yaratır?</h6>
+            <p>%40–50 su, %30 enerji tasarrufu sağlar.</p>
+            <div class="ratio ratio-16x9">
+              <iframe src="https://www.youtube.com/embed/-bNy73KFQ8k" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <!-- 3. Video -->
+          <div class="col-md-4">
+            <h6 class="fw-bold">Yağmur suyu sistemleri işe yarar mı?</h6>
+            <p>Bahçe sulama ve rezervuar için ideal çözümdür.</p>
+            <div class="ratio ratio-16x9">
+              <iframe src="https://www.youtube.com/embed/dCeqLaaXDXU" allowfullscreen></iframe>
+            </div>
+          </div>
+
+
+
+                   <!-- 4. -->
+          <div class="col-md-4">
+            <h6 class="fw-bold">Yağların suyu kirletmesini nasıl engelleriz?</h6>
+               
+                <p>Atık yağ toprağa, suya, kanalizasyona ve çöpe asla dökülmemelidir.
+                Herhangi bir kimyasal ya da benzeri maddeler ile karıştırılmamalıdır.
+                Hava kirliliğine neden olacağından soba ve kazanlarda yakılmamalıdır.
+                Düzgün, sızdırmayacak kapaklı bir kap içinde biriktirilerek en yakın atık yağ toplama noktasına ücretsiz olarak teslim edilmelidir.</p>
+
+
+                <!-- video kısmı şimdilik iptal
+              <div class="ratio ratio-16x9"></div> -->
+
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
