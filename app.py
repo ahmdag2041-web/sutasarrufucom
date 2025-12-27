@@ -21,6 +21,12 @@ client = MongoClient(
 db = client["sutasarruf"]                # → Veritabanı (ilk kayıt gelince oluşur)
 collection = db["iletisim_mesajlari"]    # → Koleksiyon (ilk kayıt gelince oluşur)
 
+@app.route("/evde-su-tasarrufu-nasil-yapilir")
+def evde_su_tasarrufu():
+    return render_template("evde-su-tasarrufu.html")
+
+
+
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
