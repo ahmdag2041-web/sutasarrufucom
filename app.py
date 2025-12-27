@@ -21,6 +21,17 @@ client = MongoClient(
 db = client["sutasarruf"]                # → Veritabanı (ilk kayıt gelince oluşur)
 collection = db["iletisim_mesajlari"]    # → Koleksiyon (ilk kayıt gelince oluşur)
 
+@app.route("/robots.txt")
+def robots():
+    robots_txt = """User-agent: *
+Allow: /
+
+Sitemap: https://sutasarrufrehberi.com/sitemap.xml
+"""
+    return Response(robots_txt, mimetype="text/plain")
+
+
+
 @app.route("/evde-su-tasarrufu-nasil-yapilir")
 def evde_su_tasarrufu():
     return render_template("evde-su-tasarrufu.html")
