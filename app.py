@@ -31,7 +31,6 @@ Sitemap: https://sutasarrufrehberi.com/sitemap.xml
     return Response(robots_txt, mimetype="text/plain")
 
 
-
 @app.route("/evde-su-tasarrufu-nasil-yapilir")
 def evde_su_tasarrufu():
     return render_template("evde-su-tasarrufu.html")
